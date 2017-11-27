@@ -1,0 +1,11 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fr.unicaen.dez</groupId>
+    <artifactId>filRouge</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>library</module>
+        <module>service</module>
+    </modules>
+</project>
