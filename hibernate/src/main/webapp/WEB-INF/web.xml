@@ -9,7 +9,6 @@
 
         <servlet>
             <servlet-name>mainServlet</servlet-name>
-            <servlet-class>servlets.Test</servlet-class>
         </servlet>
         <servlet-mapping>
             <servlet-name>mainServlet</servlet-name>

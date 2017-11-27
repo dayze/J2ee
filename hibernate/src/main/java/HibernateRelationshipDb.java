@@ -1,5 +1,4 @@
 import fr.unicaen.dez.person.InterfaceRelationshipDB;
-import fr.unicaen.dez.person.PersistentPerson;
 import fr.unicaen.dez.person.PersistentRelationship;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

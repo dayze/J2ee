@@ -7,5 +7,6 @@
     <modules>
         <module>library</module>
         <module>service</module>
+        <module>hibernate</module>
     </modules>
 </project>
