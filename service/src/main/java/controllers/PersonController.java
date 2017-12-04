@@ -2,7 +2,6 @@ package controllers;
 
 import fr.unicaen.dez.person.InterfacePersonDB;
 import fr.unicaen.dez.person.PersistentPerson;
-import fr.unicaen.dez.person.PersonDBStub;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
