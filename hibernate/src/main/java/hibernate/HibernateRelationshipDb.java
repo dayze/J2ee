@@ -1,5 +1,7 @@
-import fr.unicaen.dez.person.InterfacePersonDB;
-import fr.unicaen.dez.person.PersistentPerson;
+package hibernate;
+
+import fr.unicaen.dez.person.InterfaceRelationshipDB;
+import fr.unicaen.dez.person.PersistentRelationship;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -7,12 +9,11 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class HibernatePersonDb implements InterfacePersonDB {
+public class HibernateRelationshipDb implements InterfaceRelationshipDB {
     private SessionFactory sessionFactory;
 
-    public HibernatePersonDb() {
+    public HibernateRelationshipDb() {
         ServiceRegistry serviceRegistry = null;
         try {
             Configuration configuration = new Configuration().configure();
@@ -33,12 +34,12 @@ public class HibernatePersonDb implements InterfacePersonDB {
     }
 
     @Override
-    public boolean create(String name, String lastName) {
+    public boolean create(int firstPerson, int secondPerson, String type) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(new PersistentPerson(name, lastName));
+            session.save(new PersistentRelationship(firstPerson, secondPerson, type));
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -52,15 +53,15 @@ public class HibernatePersonDb implements InterfacePersonDB {
     }
 
     @Override
-    public ArrayList<PersistentPerson> readAll() {
+    public ArrayList<PersistentRelationship> readAll() {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            Query query = session.createQuery("from PersistentPerson");
-            ArrayList<PersistentPerson> persons = (ArrayList<PersistentPerson>) query.list();
+            Query query = session.createQuery("from PersistentRelationship");
+            ArrayList<PersistentRelationship> relations = (ArrayList<PersistentRelationship>) query.list();
             transaction.commit();
-            return persons;
+            return relations;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -72,14 +73,14 @@ public class HibernatePersonDb implements InterfacePersonDB {
     }
 
     @Override
-    public PersistentPerson read(int id) throws SQLException {
+    public PersistentRelationship read(int id) throws SQLException {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            PersistentPerson persistentPerson = (PersistentPerson) session.get(PersistentPerson.class, id);
+            PersistentRelationship persistentRelationship = (PersistentRelationship) session.get(PersistentRelationship.class, id);
             transaction.commit();
-            return persistentPerson;
+            return persistentRelationship;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -96,8 +97,8 @@ public class HibernatePersonDb implements InterfacePersonDB {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            PersistentPerson persistentPerson = (PersistentPerson) session.load(PersistentPerson.class, id);
-            session.delete(persistentPerson);
+            PersistentRelationship persistentRelationship = (PersistentRelationship) session.load(PersistentRelationship.class, id);
+            session.delete(persistentRelationship);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -111,15 +112,16 @@ public class HibernatePersonDb implements InterfacePersonDB {
     }
 
     @Override
-    public boolean update(int id, String name, String lastName) throws SQLException {
+    public boolean update(int id, int firstPerson, int secondPerson, String type) throws SQLException {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            PersistentPerson persistentPerson = (PersistentPerson) session.load(PersistentPerson.class, id);
-            persistentPerson.setName(name);
-            persistentPerson.setLastName(lastName);
-            session.update(persistentPerson);
+            PersistentRelationship persistentRelationship = (PersistentRelationship) session.load(PersistentRelationship.class, id);
+            persistentRelationship.setFirstPerson(firstPerson);
+            persistentRelationship.setSecondPerson(secondPerson);
+            persistentRelationship.setType(type);
+            session.update(persistentRelationship);
             transaction.commit();
             return true;
         } catch (Exception e) {

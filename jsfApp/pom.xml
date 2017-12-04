@@ -33,5 +33,11 @@
             <artifactId>library</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>fr.unicaen.dez</groupId>
+            <artifactId>hibernatedemo</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
 </project>

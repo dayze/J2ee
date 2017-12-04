@@ -1,3 +1,5 @@
+import hibernate.HibernatePersonDb;
+
 import java.sql.SQLException;
 
 public class Main {

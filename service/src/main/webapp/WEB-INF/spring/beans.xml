@@ -9,9 +9,9 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="interfacePersonDB" class="HibernatePersonDb">
+    <bean id="interfacePersonDB" class="hibernate.HibernatePersonDb">
     </bean>
-    <bean id="interfaceRelationshipDb" class="HibernateRelationshipDb">
+    <bean id="interfaceRelationshipDb" class="hibernate.HibernateRelationshipDb">
     </bean>
 
 
