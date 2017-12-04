@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.unicaen.dez</groupId>
@@ -8,5 +9,6 @@
         <module>library</module>
         <module>service</module>
         <module>hibernate</module>
+        <module>jsfApp</module>
     </modules>
 </project>
