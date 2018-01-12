@@ -24,6 +24,8 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+--
+
 INSERT INTO `personne` (`id`, `name`, `lastName`) VALUES
 (1, 'Maxime', 'Laine'),
 (2, 'Paul', 'Lemenager');
@@ -31,22 +33,6 @@ INSERT INTO `personne` (`id`, `name`, `lastName`) VALUES
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `personne`
---
-ALTER TABLE `personne`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `personne`
---
-ALTER TABLE `personne`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
