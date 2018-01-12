@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `personne`
---
-
-CREATE TABLE `personne` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `lastName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `personne`
---
-
 INSERT INTO `personne` (`id`, `name`, `lastName`) VALUES
 (1, 'Maxime', 'Laine'),
 (2, 'Paul', 'Lemenager');
